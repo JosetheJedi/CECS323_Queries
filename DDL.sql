@@ -18,17 +18,18 @@ DROP TABLE ProspectiveCustomers;
 DROP TABLE PremiereCustomers;
 DROP TABLE SteadyCustomers;
 DROP TABLE ExistingCustomers;
-DROP TABLE Addressess;
+DROP TABLE Addresses;
 DROP TABLE PrivateIndividuals;
 DROP TABLE Corporations;
 DROP TABLE Customers;
 
 create table Customers (
-    custID 			VARCHAR(20) NOT NULL,
-    Name 			VARCHAR(40) NOT NULL,
-    firstName 		VARCHAR(20) NOT NULL,
-    lastName 		VARCHAR(20) NOT NULL,
-    Phone 			VARCHAR(20) NOT NULL,
+    custID 	        VARCHAR(20) NOT NULL,
+    cName 	        VARCHAR(40) NOT NULL,
+    cFirstName 		VARCHAR(20) NOT NULL,
+    cLastName 		VARCHAR(20) NOT NULL,
+    cPhone 			VARCHAR(20) NOT NULL,
+    cEmail          VARCHAR(40) NOT NULL,
     CONSTRAINT customer_pk PRIMARY KEY (custID)
 );
 
@@ -49,7 +50,7 @@ create table PrivateIndividuals(
         REFERENCES Customers (custID)
 );
 
-create table Addressess(
+create table Addresses(
     custID 			VARCHAR(20) NOT NULL,
     type 			VARCHAR(10) NOT NULL,
     street 			VARCHAR(40) NOT NULL,
@@ -258,4 +259,3 @@ create table MechanicSkills(
     CONSTRAINT mechanicskills_fk_skill FOREIGN KEY (skillName)
         REFERENCES Skills (skillName)
 );
-
